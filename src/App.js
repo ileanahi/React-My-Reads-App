@@ -18,10 +18,11 @@ class BooksApp extends React.Component {
       <div className="app">
         {this.state.showSearchPage ? (
           ) : (
-              )
-      }
-    );
+
+        )}
+      </div>
+    )
   }
 }
 
-export default BooksApp;
+export default BooksApp
