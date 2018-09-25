@@ -11,8 +11,8 @@ class BooksApp extends React.Component {
     books: []
   }
 
-  moveShelf = () => {
-
+  moveShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
 }
 
   componentDidMount() {
