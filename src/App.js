@@ -2,6 +2,7 @@ import React from 'react'
 
 import SearchPage from './SearchPage';
 import MainPage from './MainPage';
+
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -12,15 +13,14 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setState({ books })
+      this.setState({ books: books })
     })
-    console.log(this.state.books);
   }
 
   render() {
     return (
       <div className="app">
-      <MainPage />
+      <MainPage books={this.state.books} />
       </div>
     );
   }
