@@ -14,16 +14,15 @@ class MainPage extends Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      {
-                          this.props.books
+                    {
+                      this.props.books
                           .filter(book => book.shelf === 'currentlyReading')
                           .map(book => (
-                              <li>
+                              <li key={book.id} >
                                   <Book />
                               </li>
                           ))
-                          }
-
+                    }
                     </ol>
                   </div>
                 </div>
@@ -32,11 +31,14 @@ class MainPage extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                     {
-                          this.props.books.filter(book => book.shelf === 'wantToRead')
-                          }
-                      <li>
-                      </li>
-
+                      this.props.books
+                          .filter(book => book.shelf === 'wantToRead')
+                          .map(book => (
+                              <li key={book.id} >
+                                  <Book />
+                              </li>
+                          ))
+                    }
                     </ol>
                   </div>
                 </div>
