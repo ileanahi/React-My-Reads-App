@@ -13,6 +13,10 @@ class BooksApp extends React.Component {
 
   moveShelf = (book, shelf) => {
     BooksAPI.update(book, shelf);
+    // To update state and automatically refresh
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books: books })
+    })
 }
 
   componentDidMount() {
