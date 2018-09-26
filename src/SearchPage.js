@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import Book from './Book';
 
 class SearchPage extends Component {
+
+    state = {
+        query=''
+    }
+
+    updateQuery = (query) => {
+        this.setState({
+            query: query.trim()
+        })
+    }
+
     render () {
         return (
             <div className="search-books">
