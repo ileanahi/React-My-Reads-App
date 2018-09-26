@@ -21,7 +21,7 @@ class SearchPage extends Component {
     updateSearchedBooks = (query) => {
         if (query) {
             BooksAPI.search(query).then((searchedBooks) => {
-            this.setState({ searchedBooks: searchedBooks })
+            this.setState({ searchedBooks: searchedBooks });
             })
         } else {
             this.setState({ searchedBooks: [] });
