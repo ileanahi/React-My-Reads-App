@@ -32,9 +32,11 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
       {/* Pass books and moveShelf function as props to mainpage */}
-      {/* <MainPage books={this.state.books}
-      moveShelf={this.moveShelf} /> */}
-      <SearchPage />
+      <MainPage books={this.state.books}
+      moveShelf={this.moveShelf} />
+      {/* Pass moveShelf function as props */}
+      <SearchPage
+      moveShelf={this.moveShelf} />
       </div>
     );
   }
