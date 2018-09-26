@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import Book from './Book';
+import * as BooksAPI from './BooksAPI'
 
 class SearchPage extends Component {
 
     state = {
-        query: ''
+        query: '',
+        searchedBooks: []
     }
 
     updateQuery = (query) => {
         this.setState({
             query: query
+        })
+    }
+
+    getSearchedBooks = (query) => {
+        BooksAPI.search(query).then((searchedBooks) => {
+        this.setState({ searchedBooks: searchedBooks })
         })
     }
 
@@ -29,7 +37,9 @@ class SearchPage extends Component {
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
+
+              </ol>
             </div>
           </div>
         );
