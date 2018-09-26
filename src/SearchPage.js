@@ -9,6 +9,7 @@ class SearchPage extends Component {
         searchedBooks: []
     }
 
+    // Sets state to the query and updates the list of searched books when the query is input
     updateQuery = (query) => {
         this.setState({
             query: query
@@ -16,10 +17,15 @@ class SearchPage extends Component {
         this.updateSearchedBooks(query);
     }
 
+    // Updates list of searched books, if no query, display nothing
     updateSearchedBooks = (query) => {
-        BooksAPI.search(query).then((searchedBooks) => {
-        this.setState({ searchedBooks: searchedBooks })
-        })
+        if (query) {
+            BooksAPI.search(query).then((searchedBooks) => {
+            this.setState({ searchedBooks: searchedBooks })
+            })
+        } else {
+            this.setState({ searchedBooks: [] });
+        }
     }
 
     render () {
@@ -39,6 +45,7 @@ class SearchPage extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
+                { /* Creates an li of books based on list of searched books  */}
                 {this.state.searchedBooks.map(searchedBook => (
                     <li key={searchedBook.id}>
                     <Book
