@@ -33,14 +33,17 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
       <Route exact path="/" render={() => (
-      {/* Pass books and moveShelf function as props to mainpage */}
-        <MainPage books={this.state.books}
+       /* Pass books and moveShelf function as props to mainpage */
+        <MainPage
+        books={this.state.books}
         moveShelf={this.moveShelf} />
         )} />
+
       <Route path="/search" render={() => (
-        {/* Pass moveShelf function as props */}
+        /* Pass moveShelf function as props */
         <SearchPage
-        moveShelf={this.moveShelf} />
+        moveShelf={this.moveShelf}
+        books={this.state.books} />
         )} />
 
       </div>
