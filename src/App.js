@@ -17,14 +17,14 @@ class BooksApp extends React.Component {
   moveShelf = (book, shelf) => {
     // Update book to a different shelf
     BooksAPI.update(book, shelf).then(() => {
-      let newState = this.state.books.shelf;
-      this.setState({newState});
-    });
-    /*  // To update state and automatically refresh
+      /* this.setState({ shelf })
+      //this.state.books = {book.id: shelf}
+    }); */
+    // To update state and automatically refresh
     BooksAPI.getAll().then((books) => {
       this.setState({ books: books })
     })
-  }) */
+  })
 }
 
   componentDidMount() {
