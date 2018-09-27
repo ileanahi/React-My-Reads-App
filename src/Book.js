@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Book extends Component {
+function Book extends Component {
     render () {
         // If there isn't a thumbnail to display, display nothing
         let displayThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
