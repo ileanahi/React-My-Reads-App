@@ -7,6 +7,7 @@ import MainPage from './MainPage';
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+//This app was  written with support from the EMEA Study Jam on 7/21
 class BooksApp extends React.Component {
   state = {
     // Array of books
