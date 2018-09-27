@@ -55,12 +55,24 @@ class SearchPage extends Component {
             <div className="search-books-results">
               <ol className="books-grid">
                 { /* Creates an li of books based on list of searched books  */}
-                {this.state.searchedBooks.map(searchedBook => (
-                    <li key={searchedBook.id}>
-                    <Book
-                    book={searchedBook}
-                    /></li>
-                ))}
+                {this.state.searchedBooks.map(searchedBook => {
+                    let shelf = "none";
+
+                    this.props.books.map(book => (
+                        book.id === searchedBook.id ?
+                        shelf = book.shelf :
+                        ''
+                    ));
+
+                    return (
+                        <li key={searchedBook.id}>
+                            <Book
+                            book={searchedBook}
+                            currentShelf={this.props.books.shelf}
+                            />
+                        </li>
+                    )}
+                )}
               </ol>
             </div>
           </div>
