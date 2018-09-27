@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route } from 'react-router-dom';
 
 import SearchPage from './SearchPage';
 import MainPage from './MainPage';
@@ -31,12 +32,17 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
+      <Route exact path="/" render={() => (
       {/* Pass books and moveShelf function as props to mainpage */}
-      <MainPage books={this.state.books}
-      moveShelf={this.moveShelf} />
-      {/* Pass moveShelf function as props */}
-      <SearchPage
-      moveShelf={this.moveShelf} />
+        <MainPage books={this.state.books}
+        moveShelf={this.moveShelf} />
+        )} />
+      <Route path="/search" render={() => (
+        {/* Pass moveShelf function as props */}
+        <SearchPage
+        moveShelf={this.moveShelf} />
+        )} />
+
       </div>
     );
   }
