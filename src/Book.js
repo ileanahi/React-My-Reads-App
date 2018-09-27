@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-function Book extends Component {
-    render () {
+function Book(props) {
         // If there isn't a thumbnail to display, display nothing
-        let displayThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
+        let displayThumbnail = props.book.imageLinks ? props.book.imageLinks.thumbnail : '';
 
         return (
             <div className="book">
@@ -12,8 +11,8 @@ function Book extends Component {
                             <div className="book-shelf-changer">
                               {/* When value is selected, the moveShelf function is fired and uses the book and value of the selection */}
                               <select
-                              onChange={(event) => this.props.moveShelf(this.props.book, event.target.value)}
-                              value={this.props.currentShelf}>
+                              onChange={(event) => props.moveShelf(props.book, event.target.value)}
+                              value={props.currentShelf}>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
@@ -22,11 +21,10 @@ function Book extends Component {
                               </select>
                             </div>
                           </div>
-                          <div className="book-title">{this.props.book.title}</div>
-                          <div className="book-authors">{this.props.book.authors}</div>
+                          <div className="book-title">{props.book.title}</div>
+                          <div className="book-authors">{props.book.authors}</div>
                         </div>
         );
     }
-}
 
 export default Book;
